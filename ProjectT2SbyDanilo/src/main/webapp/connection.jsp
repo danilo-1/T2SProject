@@ -10,15 +10,12 @@
 <%@ page pageEncoding="UTF-8" %>
 
 <h1>projeto</h1>
-<%
-    
-   
-	// Passo 1. Carregar o Driver JDBC
-	//Class.forName("org.gjt.mm.mysql.Driver");
-	Class.forName("org.postgresql.Driver");
-	
-	// Passo 2. Criar um objeto Connection 
-	Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/BDT2SProject?user=postgre&password=postgre");
+<%  
+  String url = "jdbc:postgresql://localhost:5432/DBT2SProject"; //Informe a porta de conexão. Assim você garante todas as informações de conexão.
+  String username = "postgre";  
+  String password = "postgre";  
+  Class.forName("org.postgresql.Driver");//Não precisa chamar o método newInstance, basta assim como coloquei.
+   Connection con = DriverManager.getConnection( url, username, password );
 	out.println("Conexao iniciada...<br />");
 	
 	// Passo 3. Criar um objeto Statement 
