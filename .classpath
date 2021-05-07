@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="ProjectT2SbyDanilo/src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/PostgresqlT2S"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.0 "/>
+	<classpathentry kind="lib" path="postgresql-42.2.20.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
