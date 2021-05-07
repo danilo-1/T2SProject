@@ -5,9 +5,9 @@
 <%@ page pageEncoding="UTF-8" %>
 <h1>projeto</h1>
 <%  
-  String url = "jdbc:postgresql://localhost:5432/DBT2SProject"; //Informe a porta de conexão. Assim você garante todas as informações de conexão.
+  String url = "jdbc:postgresql://172.31.6.157:5432/DBT2SProject"; //Informe a porta de conexão. Assim você garante todas as informações de conexão.
   String username = "postgres";  
-  String password = "postgres";  
+  String password = "root";  
  //Não precisa chamar o método newInstance, basta assim como coloquei.
 
 	 
