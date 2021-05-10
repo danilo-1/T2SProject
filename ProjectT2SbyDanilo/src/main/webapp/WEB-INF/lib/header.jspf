@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@page import="java.sql.*"%>
+<head>
+
+</head>
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+ <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+ <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+ </a>
+
+<%
+if(session.getAttribute("usuario logado") == null){
+out.println("bem vindo ao BDT2S ");%>
+ <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+	<li><a href="index.jsp" class="nav-link px-2 link-dark">Página inicial</a></li>
+	<li><a href="sobre.jsp" class="nav-link px-2 link-dark">Sobre</a></li>
+</ul>
+<div class="col-md-3 text-end"  ><style>form {display:inline;}</style>
+<form action="login_cadastro/login.jsp"method="post">
+	<button type="submit" class="btn btn-outline-primary me-2">Login</button>
+</form>
+<form action="login_cadastro/cadastro.jsp" method="post">
+	<button type="submit" class="btn btn-outline-primary me-2">Cadastro</button>
+</form>
+</div>
+<br/>
+<%}%>
+<% if(session.getAttribute("usuario logado") != null){ %>
+<h4>Bem vindo, <%= session.getAttribute("username") %> </h4>
+
+<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+	<li><a href="index.jsp" class="nav-link px-2 link-dark">Página inicial</a></li>
+	<li><a href="sobre.jsp" class="nav-link px-2 link-dark">Sobre</a></li>
+	<li><a href="database.jsp" class="nav-link px-2 link-dark">Conteineres</a></li>
+</ul>
+<form method="post">
+	<div class="col-md-3 text-end">
+		<button type="submit" class="btn btn-outline-primary me-2" name="logout" value="logout">Logout</button>        
+	</div>
+</form>
+
+<br/>
+<% } 
+     if(request.getParameter("logout")!=null){
+        session.removeAttribute("usuario logado");
+        session.removeAttribute("username");
+        response.sendRedirect("index.jsp");
+        }%>
+</header>
+
+    
+      
+
+      
+ 

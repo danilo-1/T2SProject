@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
+
+<%@page import="java.sql.*"%> 
+
+<%@ page pageEncoding="UTF-8" %>
+<h1>projeto</h1>
+
+<% 
+  
+ 
+  String url = "jdbc:postgresql://localhost:5432/DBproject"; 
+  String username = "postgres";  
+  String password = "root";  
+ //Não precisa chamar o método newInstance, basta assim como coloquei.
+
+	String user = request.getParameter("username");
+String userpass = request.getParameter("password");
+try{
+	   Connection con = DriverManager.getConnection( url, username, password );
+		out.println("Conexao iniciada...<br />"); 
+ 
+	
+	
+%>
+
+
+
+
