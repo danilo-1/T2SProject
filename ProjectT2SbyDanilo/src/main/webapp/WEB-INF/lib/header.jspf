@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*"%>
 <head>
 
@@ -13,7 +13,7 @@
 if(session.getAttribute("usuario logado") == null){
 out.println("bem vindo ao BDT2S ");%>
  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-	<li><a href="index.jsp" class="nav-link px-2 link-dark">PÃ¡gina inicial</a></li>
+	<li><a href="index.jsp" class="nav-link px-2 link-dark">Página inicial</a></li>
 	<li><a href="sobre.jsp" class="nav-link px-2 link-dark">Sobre</a></li>
 </ul>
 <div class="col-md-3 text-end"  ><style>form {display:inline;}</style>
@@ -30,7 +30,7 @@ out.println("bem vindo ao BDT2S ");%>
 <h4>Bem vindo, <%= session.getAttribute("username") %> </h4>
 
 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-	<li><a href="index.jsp" class="nav-link px-2 link-dark">PÃ¡gina inicial</a></li>
+	<li><a href="index.jsp" class="nav-link px-2 link-dark">Página inicial</a></li>
 	<li><a href="sobre.jsp" class="nav-link px-2 link-dark">Sobre</a></li>
 	<li><a href="database.jsp" class="nav-link px-2 link-dark">Conteineres</a></li>
 </ul>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
  <%@page import="java.sql.*"%> 
 
 
@@ -15,7 +15,7 @@
 	<body>
 	<div class="container">
 	<%@include file="WEB-INF/lib/header.jspf" %>
-	<h1>Database usuÃ¡rio</h1>
+	<h1>Database usuário</h1>
 	<%
 	String b = (String)session.getAttribute("email");
 	String url = "jdbc:postgresql://172.31.6.157:5432/DBT2SProject"; 
@@ -45,7 +45,7 @@
 <%}
 if(session.getAttribute("usuario logado") == null){
 	%> <div class="container"><%
-		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteÃºdo da pÃ¡gina");
+		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteúdo da página");
 	%></div><%
 }
 %>

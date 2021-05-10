@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
  <%@page import="java.sql.*"%> 
 
 <%
@@ -9,14 +9,14 @@ String name = request.getParameter("name");
 String url = "jdbc:postgresql://172.31.6.157:5432/DBT2SProject"; 
 String username = "postgres";  
 String password = "root";  
-//NÃ£o precisa chamar o mÃ©todo newInstance, basta assim como coloquei.
+//Não precisa chamar o método newInstance, basta assim como coloquei.
 
 
 try{
 	   Connection con = DriverManager.getConnection( url, username, password );
 		out.println("Conexao iniciada...<br />"); 
 		%> <h3><a href="../login_cadastro/login.jsp">Voltar</a></h3>
-		<h2><% out.println("usuÃ¡rio nÃ£o encontrado, por favor, insira os dados nomavente"); %></h2><%
+		<h2><% out.println("usuário não encontrado, por favor, insira os dados nomavente"); %></h2><%
 // Passo 3. Criar um objeto Statement 
 	PreparedStatement stmt = con.prepareStatement("INSERT INTO contato VALUES (?, ?, ?)");
 

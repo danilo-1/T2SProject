@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +11,14 @@
 <body class="container">
 <div class="container">
 <h3><a href="../index.jsp">Voltar</a></h3>
-<form action="../valida√ß√£o/cadastroV.jsp" method="post">
+<form action="../validaÁ„o/cadastroV.jsp" method="post">
 <div class="mb-3">
-    <label for="name" class="form-label">Nome do usu√°rio</label>
+    <label for="name" class="form-label">Nome do usu·rio</label>
     <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name">
     <div id="emailHelp" class="form-text"> Por favor, insira seu primeiro nome</div>
   </div>
   <div class="mb-3">
-    <label for="email" class="form-label">Endere√ßo de email</label>
+    <label for="email" class="form-label">EndereÁo de email</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="username">
     <div id="emailHelp" class="form-text"> Adicione seu cadastro usando um email, exemplo: Email@example.com</div>
   </div>

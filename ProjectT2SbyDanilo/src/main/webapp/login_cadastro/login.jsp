@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +12,13 @@
 <div class="container">
 <h3><a href="../index.jsp">Voltar</a></h3>
 <h3><%if(session.getAttribute("cadastrado") != null){
-out.println("usuÃ¡rio cadastrado com sucesso!");
+out.println("usuário cadastrado com sucesso!");
 }%></h3>
-<form action="../validaÃ§Ã£o/loginV.jsp">
+<form action="../validação/loginV.jsp">
 	<div class="mb-3">
-	    <label for="email" class="form-label">EndereÃ§o de email</label>
+	    <label for="email" class="form-label">Endereço de email</label>
 	    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="username">
-	    <div id="emailHelp" class="form-text"> entre com seu endereÃ§o para acessar seus contÃªineres</div>
+	    <div id="emailHelp" class="form-text"> entre com seu endereço para acessar seus contêineres</div>
   </div>
   <div class="mb-3">
 	    <label for="senha" class="form-label">Senha</label>
@@ -26,7 +26,7 @@ out.println("usuÃ¡rio cadastrado com sucesso!");
   </div>
   <button type="submit" class="btn btn-primary" name="logar">Login</button>
 </form>
-<h3>nÃ£o tem o cadastro? <a href="cadastro.jsp">Cadastre-se jÃ¡!</a></h3>
+<h3>não tem o cadastro? <a href="cadastro.jsp">Cadastre-se já!</a></h3>
 </div>
 </body>
 </html>
