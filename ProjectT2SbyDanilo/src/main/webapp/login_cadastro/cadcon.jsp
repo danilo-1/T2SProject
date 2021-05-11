@@ -33,7 +33,7 @@ stmt.setString(6, (String)session.getAttribute("email"));
 	
 	int rs = stmt.executeUpdate();
     if( rs > 0) {
-        response.sendRedirect("database.jsp");
+        response.sendRedirect("../database.jsp");
     }
 	 stmt.close(); con.close(); 
  }
