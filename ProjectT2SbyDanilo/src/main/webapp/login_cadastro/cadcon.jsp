@@ -70,8 +70,8 @@ stmt.setString(6, (String)session.getAttribute("email"));
 				<option value="vazio">vazio</option>
 			</select>
 			<select name="conteinerCate">
-				<option value="importação">importação</option>
-				<option value="exportação">exportação</option>
+				<option value="importacao">importação</option>
+				<option value="exportacao">exportação</option>
 			</select>
 			<input type="submit" name="criar" value="criar">
 		</form>
