@@ -79,7 +79,7 @@ stmt.setString(6, (String)session.getAttribute("email"));
 <%}
 if(session.getAttribute("usuario logado") == null){
 	%> <div class="container"><%
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("../index.jsp");
 	%></div><%
 }
 %>

@@ -15,7 +15,7 @@
 	<body>
 	<div class="container">
 	<%@include file="WEB-INF/lib/header.jspf" %>
-	<h1>Contêiners do <%session.getAttribute("username"); %></h1>
+	<h1>Contêiners do <%= session.getAttribute("username") %></h1>
 	<a href="login_cadastro/cadcon.jsp">add conteiner</a>
 	<%
 	String b = (String)session.getAttribute("email");
@@ -46,7 +46,7 @@
 <%}
 if(session.getAttribute("usuario logado") == null){
 	%> <div class="container"><%
-		response.sendRedirect("index.jsp");
+		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteúdo da página");
 	%></div><%
 }
 %>
