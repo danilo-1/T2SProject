@@ -30,7 +30,7 @@
 	ResultSet rs = stmt.executeQuery();
 	
 	while(rs.next()){
-	out.println(rs.getString("id_conteiner") + " | " + rs.getString("nm_cliente")+" | "+ rs.getString("num_conteiner")+" | "+ rs.getString("tipo_conteiner")+" | "+ rs.getString("status_conteiner")+" | "+ rs.getString("categoria")+ "<br/>");
+	out.println(rs.getString("nm_cliente")+" | "+ rs.getString("num_conteiner")+" | "+ rs.getString("tipo_conteiner")+" | "+ rs.getString("status_conteiner")+" | "+ rs.getString("categoria")+ "<br/>");
 	}
 	rs.close(); stmt.close(); con.close(); 
  }
