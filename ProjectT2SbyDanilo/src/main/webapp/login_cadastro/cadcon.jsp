@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*"%> 
 
-<%
+<%if(request.getParameter("criar") != null){
 String a = (String)session.getAttribute("username");
 
 String id = request.getParameter("conteinerId");
@@ -32,7 +32,7 @@ stmt.setString(6, (String)session.getAttribute("email"));
 	ResultSet rs = stmt.executeQuery();
 	
 	while(rs.next()){
-	if(rs.getString(1) != null){
+	if(rs != null){
 		
 		response.sendRedirect("../database.jsp");
 	 
@@ -44,6 +44,7 @@ stmt.setString(6, (String)session.getAttribute("email"));
 	 out.println("Erro em conectar o Database: " + e);
 	 e.printStackTrace();
  }
+}
  %>
 
 <!DOCTYPE html>
@@ -54,24 +55,23 @@ stmt.setString(6, (String)session.getAttribute("email"));
 <meta charset="utf-8">
 <title>Inserir contêiner </title>
 </head>
-<% if(request.getParameter("new") != null){
+
 	
-%>
 <body>
 	<div class="container">
 		<form>
-			<input type="text" placeholder="AAAA1234567" value="conteinerId">
+			<input type="text" placeholder="AAAA1234567" name="conteinerId">
 			<select name="conteinerTp">
-				<option value="valort1">20</option>
-				<option value="valort2">40</option>
+				<option value="20">20</option>
+				<option value="40">40</option>
 			</select>
 			<select name="conteinerSt">
-				<option value="valors1">cheio</option>
-				<option value="valors2">vazio</option>
+				<option value="cheio">cheio</option>
+				<option value="vazio">vazio</option>
 			</select>
 			<select name="conteinerCate">
-				<option value="valorc1">importação</option>
-				<option value="valorc2">exportação</option>
+				<option value="importação">importação</option>
+				<option value="exportação">exportação</option>
 			</select>
 			<input type="submit" name="criar" value="criar">
 		</form>
@@ -79,10 +79,4 @@ stmt.setString(6, (String)session.getAttribute("email"));
 	</div>
 </body>
 </html>
-<%}
-else{
-	%> <div class="container"><%
-		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteúdo da página");
-	%></div><%
-}
-%>
+
