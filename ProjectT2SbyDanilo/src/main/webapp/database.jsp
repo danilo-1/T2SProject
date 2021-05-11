@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html"%>
  <%@page import="java.sql.*"%> 
 
 
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-<meta charset="utf-8">
+
 <title>Database-BDT2S</title>
 </head>
 <%if(session.getAttribute("usuario logado") != null){%>
@@ -29,10 +29,16 @@
 	PreparedStatement stmt = con.prepareStatement("SELECT * FROM conteiner where email = ? ");
 	stmt.setString(1, b);
 	ResultSet rs = stmt.executeQuery();
-	
+	%><table><%
 	while(rs.next()){
-	out.println(rs.getString("nm_cliente")+" | "+ rs.getString("num_conteiner")+" | "+ rs.getString("tipo_conteiner")+" | "+ rs.getString("status_conteiner")+" | "+ rs.getString("categoria")+ "<br/>");
-	}
+	%><tr><% 
+				%><td><%out.println(rs.getString("nm_cliente"));%></td><%
+				%><td><%out.println(rs.getString("num_conteiner"));%></td><%
+				%><td><%out.println(rs.getString("tipo_conteiner"));%></td><%
+				%><td><%out.println(rs.getString("status_conteiner"));%></td><%
+				%><td><%out.println(rs.getString("categoria"));%></td><%
+	%></tr><%} 
+	%></table><%
 	rs.close(); stmt.close(); con.close(); 
  }
  catch(SQLException e){
@@ -40,13 +46,16 @@
 	 e.printStackTrace();
  }%>
  	
-	</div>
-	</body>
-	</html>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="implementacao.js"></script>
+</body>
+</html>
 <%}
 if(session.getAttribute("usuario logado") == null){
 	%> <div class="container"><%
 		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteúdo da página");
+	
 	%></div><%
 }
 %>
