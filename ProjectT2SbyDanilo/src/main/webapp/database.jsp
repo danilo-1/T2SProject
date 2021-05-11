@@ -29,7 +29,8 @@
 	PreparedStatement stmt = con.prepareStatement("SELECT * FROM conteiner where email = ? ");
 	stmt.setString(1, b);
 	ResultSet rs = stmt.executeQuery();
-	%><table><%
+	%><div class="table-responsive">
+	<table class="table table-striped table-sm"><%
 	while(rs.next()){
 	%><tr><% 
 				%><td><%out.println(rs.getString("nm_cliente"));%></td><%
@@ -38,7 +39,7 @@
 				%><td><%out.println(rs.getString("status_conteiner"));%></td><%
 				%><td><%out.println(rs.getString("categoria"));%></td><%
 	%></tr><%} 
-	%></table><%
+	%></table></div><%
 	rs.close(); stmt.close(); con.close(); 
  }
  catch(SQLException e){
