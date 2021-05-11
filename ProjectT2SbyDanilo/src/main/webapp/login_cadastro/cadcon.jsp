@@ -29,16 +29,13 @@ stmt.setString(5, cate);
 stmt.setString(6, (String)session.getAttribute("email"));
  
 	//String sql = "SELECT * FROM contato where email = " + user;
-	ResultSet rs = stmt.executeQuery();
 	
-	while(rs.next()){
-	if(rs != null){
-		
-		response.sendRedirect("../database.jsp");
-	 
-	 
-	}}
-	rs.close(); stmt.close(); con.close(); 
+	
+	int rs = stmt.executeUpdate();
+    if( rs > 0) {
+        response.sendRedirect("database.jsp");
+    }
+	 stmt.close(); con.close(); 
  }
  catch(SQLException e){
 	 out.println("Erro em conectar o Database: " + e);

@@ -25,16 +25,14 @@ stmt.setString(2, userpass);
 stmt.setString(3, name);
  
 	//String sql = "SELECT * FROM contato where email = " + user;
-	ResultSet rs = stmt.executeQuery();
 	
-	while(rs.next()){
-	if(rs.getString(1) != null){
-		out.println("configurado");
 	
-	    session.setAttribute("cadastrado", "true");
-	    response.sendRedirect("../login_cadastro/login.jsp");
-	}}
-	rs.close(); stmt.close(); con.close(); 
+	int rs = stmt.executeUpdate();
+    if(rs > 0) {
+    	session.setAttribute("cadastrado", "true");
+    	response.sendRedirect("../login_cadastro/login.jsp");
+    }
+	 stmt.close(); con.close(); 
  }
  catch(SQLException e){
 	 out.println("Erro em conectar o Database: " + e);
