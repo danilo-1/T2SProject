@@ -15,8 +15,44 @@
 	<body>
 	<div class="container">
 	<%@include file="WEB-INF/lib/header.jspf" %>
-	<h1>Contêiners do <%= session.getAttribute("username") %></h1>
+	<h1>Contêineres <%= session.getAttribute("username") %></h1>
 	<a href="login_cadastro/cadcon.jsp">add conteiner</a>
+	<div id="app">
+	<label>
+	<button v-on:click"add">adicionar</button>
+	<button v-on:click"update">editar</button>
+	</label>
+	
+	<form v-if="add"> <style> .ca{text-transform: uppercase !important;}</style>
+			<input type="text" class="ca" placeholder="AAAA1234567" maxlength="11" name="conteinerId">
+			<select name="conteinerTp">
+				<option value="20">20</option>
+				<option value="40">40</option>
+			</select>
+			<select name="conteinerSt">
+				<option value="cheio">cheio</option>
+				<option value="vazio">vazio</option>
+			</select>
+			<select name="conteinerCate">
+				<option value="importacao">importação</option>
+				<option value="exportacao">exportação</option>
+			</select>
+			<input type="submit" name="criar" value="criar">
+	</form>
+	<form v-else-if="update">
+			<input type="text" class="ca" placeholder="AAAA1234567" maxlength="11" name="conteinerId">
+			<select name="conteinerTp">
+				<option value="20">20</option>
+				<option value="40">40</option>
+			</select>
+			
+			<select name="conteinerCate">
+				<option value="importacao">importação</option>
+				<option value="exportacao">exportação</option>
+			</select>
+			<input type="submit" name="criar" value="criar">
+	</form>
+	</div>
 	<%
 	String b = (String)session.getAttribute("email");
 	String url = "jdbc:postgresql://172.31.6.157:5432/DBT2SProject"; 
