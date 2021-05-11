@@ -19,8 +19,9 @@
 	<a href="login_cadastro/cadcon.jsp">add conteiner</a>
 	<div id="app">
 	<label>
-	<button v-on:click"add">adicionar</button>
-	<button v-on:click"update">editar</button>
+	<div v-for="variant in variants" :key="variant.variantId">
+<p @mouseover="Updateform(variant.variantImage)">{{ variant.variantColor }}</p>
+</div>
 	</label>
 	
 	<form v-if="add"> <style> .ca{text-transform: uppercase !important;}</style>

@@ -8,12 +8,21 @@ var app = new Vue({
 		variants: [
 			{
 				variantId: 2234,
-				
+				variantColor: 'add',
+				add: 'true'
 			},
 			{
-				variantId: 2235
+				variantId: 2235,
+				variantColor: 'update',
+				update: 'true'
 			}
 		]
-	}
+		
+	},
+	methods:{
+			Updateform: function(variantImage){
+				this.image = variantImage
+			}
+		}
 	
 })
