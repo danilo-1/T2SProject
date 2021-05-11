@@ -15,7 +15,8 @@
 	<body>
 	<div class="container">
 	<%@include file="WEB-INF/lib/header.jspf" %>
-	<h1>Database usuário</h1>
+	<h1>Contêiners do <%session.getAttribute("username"); %></h1>
+	<a href="login_cadastro/cadcon.jsp">add conteiner</a>
 	<%
 	String b = (String)session.getAttribute("email");
 	String url = "jdbc:postgresql://172.31.6.157:5432/DBT2SProject"; 
@@ -23,7 +24,7 @@
 	String password = "root";  
 	try{
 	   Connection con = DriverManager.getConnection( url, username, password );
-		out.println("Conexao iniciada...<br />"); 
+		
 		
 	PreparedStatement stmt = con.prepareStatement("SELECT * FROM conteiner where email = ? ");
 	stmt.setString(1, b);
@@ -38,14 +39,14 @@
 	 out.println("Erro em conectar o Database: " + e);
 	 e.printStackTrace();
  }%>
- 	<a href="login_cadastro/cadcon.jsp">add conteiner</a>
+ 	
 	</div>
 	</body>
 	</html>
 <%}
 if(session.getAttribute("usuario logado") == null){
 	%> <div class="container"><%
-		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteúdo da página");
+		response.sendRedirect("index.jsp");
 	%></div><%
 }
 %>

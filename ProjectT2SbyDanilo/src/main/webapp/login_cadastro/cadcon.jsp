@@ -18,7 +18,7 @@ String password = "root";
 
 try{
 	   Connection con = DriverManager.getConnection( url, username, password );
-		out.println("Conexao iniciada...<br />"); 
+		
 // Passo 3. Criar um objeto Statement 
 	PreparedStatement stmt = con.prepareStatement("INSERT INTO conteiner VALUES (?, ?, ?, ?, ?, ?)");
 stmt.setString(1, a);
@@ -53,11 +53,11 @@ stmt.setString(6, (String)session.getAttribute("email"));
 <title>Inserir contêiner </title>
 </head>
 
-	
+<%if(session.getAttribute("usuario logado") != null){ %>	
 <body>
 	<div class="container">
-		<form>
-			<input type="text" placeholder="AAAA1234567" name="conteinerId">
+		<form><style>ca{text-transform: uppercase !important;}</style>
+			<input type="text" id="ca" placeholder="AAAA1234567" name="conteinerId">
 			<select name="conteinerTp">
 				<option value="20">20</option>
 				<option value="40">40</option>
@@ -76,4 +76,10 @@ stmt.setString(6, (String)session.getAttribute("email"));
 	</div>
 </body>
 </html>
-
+<%}
+if(session.getAttribute("usuario logado") == null){
+	%> <div class="container"><%
+		response.sendRedirect("index.jsp");
+	%></div><%
+}
+%>
