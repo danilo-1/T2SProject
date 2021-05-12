@@ -3,8 +3,6 @@
 <%@page import="java.sql.*"%> 
 
 <%@ page pageEncoding="UTF-8" %>
-<h1>projeto</h1>
-
 <% 
   
  
@@ -15,7 +13,6 @@
 
 	String user = request.getParameter("username");
 String userpass = request.getParameter("password");
-try{
 	   Connection con = DriverManager.getConnection( url, username, password );
 		out.println("Conexao iniciada...<br />"); 
  
