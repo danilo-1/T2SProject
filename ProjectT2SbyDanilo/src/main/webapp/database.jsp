@@ -17,8 +17,7 @@
 		<div class="container">
 			<%@include file="WEB-INF/lib/header.jspf" %>
 			<h1>Contêineres <%= session.getAttribute("username") %></h1>
-			<a href="login_cadastro/cadcon.jsp">add conteiner</a>
-			<button v-on:click="exibirFormulario">adicionar um novo conteiner</button>
+			<button type="button" v-on:click="exibirFormulario" class="btn btn-dark">adicionar um novo conteiner</button>
 					<form action="login_cadastro/cadcon.jsp" v-show="v1"><style>ca{text-transform: uppercase !important;}</style>
 						<input type="text" id="ca" placeholder="AAAA1234567" name="conteinerId">
 						<select name="conteinerTp">
@@ -61,13 +60,14 @@
 						%><td><%out.println(rs.getString("id_conteiner"));%></td>
 						<%int idC2 = rs.getInt("id_conteiner");%>
 					
-						
+					<div class="btn-group" role="group" aria-label="Basic example">	
 					<td>
 					<form action="login_cadastro/edita.jsp" method="GET">
-					<button type="submit" name="editar" value="<%= idC2%>">editar</button></form>
-					<form action="login_cadastro/cadcon.jsp" method="GET">
+					<button type="submit" name="editar" value="<%= idC2%>" class="btn btn-primary">editar</button></form></td>
+					<td><form action="login_cadastro/cadcon.jsp" method="GET">
 					
-					<button type="submit" name="remove" value="<%= idC2%>">remove</button></form></td>	
+					<button type="submit" name="remove" value="<%= idC2%>" class="btn btn-primary">remove</button></form></td>
+					</div>	
 					</tr><%} 
 				%></table>
 			</div><%
