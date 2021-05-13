@@ -12,7 +12,8 @@ String password = "root";
 String userpass = request.getParameter("password");
 try{
 	   Connection con = DriverManager.getConnection( url, username, password );
-		out.println("Conexao iniciada...<br />"); 
+	   %><h3><a href="../login_cadastro/login.jsp">Voltar</a></h3><%
+		out.println("<h2>ERRO DE LOGIN: por favor, inicie um cadastro ou insira o login corretamente</h2> <br />"); 
 // Passo 3. Criar um objeto Statement 
 	PreparedStatement stmt = con.prepareStatement("select * from contato where email = ? and senha = ?");
 

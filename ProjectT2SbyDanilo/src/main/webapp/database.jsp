@@ -17,9 +17,9 @@
 		<div class="container">
 			<%@include file="WEB-INF/lib/header.jspf" %>
 			<h1>Contêineres <%= session.getAttribute("username") %></h1>
-			<button type="button" v-on:click="exibirFormulario" class="btn btn-dark">adicionar um novo conteiner</button>
-					<form action="login_cadastro/cadcon.jsp" v-show="v1"><style>ca{text-transform: uppercase !important;}</style>
-						<input type="text" id="ca" placeholder="AAAA1234567" name="conteinerId">
+			
+					<form action="login_cadastro/cadcon.jsp" id="app">
+						<input type="text" placeholder="AAAA1234567" name="conteinerId" maxlength="11" style="text-transform: uppercase !important;">
 						<select name="conteinerTp">
 							<option value="20">20</option>
 							<option value="40">40</option>
@@ -33,7 +33,7 @@
 							<option value="exportacao">exportação</option>
 						</select>
 						
-						<input type="submit" name="criar" value="criar">
+						<input type="submit" name="criar" value="criar" class="btn btn-dark">
 					</form>
 					
 			<%
@@ -59,12 +59,19 @@
 						%><td><%out.println(rs.getString("categoria"));%></td><%
 						%><td><%out.println(rs.getString("id_conteiner"));%></td>
 						<%int idC2 = rs.getInt("id_conteiner");%>
-					
+						<%String num = rs.getString("num_conteiner"); %>
+						<%String tipo = rs.getString("tipo_conteiner"); %>
+						<%String status = rs.getString("status_conteiner"); %>
+						<%String cate = rs.getString("categoria"); %>
 					<div class="btn-group" role="group" aria-label="Basic example">	
 					<td>
-					<form action="login_cadastro/edita.jsp" method="GET">
+					<form action="login_cadastro/edita.jsp" method="POST">
+					<input type="text" name="nume" hidden value="<%= num %>">
+					<input type="text" name="tipo" hidden value="<%= tipo %>">
+					<input type="text" name="status" hidden value="<%= status %>">
+					<input type="text" name="cate" hidden value="<%= cate %>">
 					<button type="submit" name="editar" value="<%= idC2%>" class="btn btn-primary">editar</button></form></td>
-					<td><form action="login_cadastro/cadcon.jsp" method="GET">
+					<td><form action="login_cadastro/cadcon.jsp" method="POST">
 					
 					<button type="submit" name="remove" value="<%= idC2%>" class="btn btn-primary">remove</button></form></td>
 					</div>	
@@ -80,7 +87,7 @@
 			 	
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<script src="implementacao.js"></script>
+		
 	</body>
 	</html>
 <%}
@@ -91,4 +98,5 @@ if(session.getAttribute("usuario logado") == null){
 	%></div><%
 }
 %>
+
 	

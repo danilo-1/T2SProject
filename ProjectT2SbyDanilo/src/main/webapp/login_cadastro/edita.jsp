@@ -11,23 +11,39 @@
 <body>
 <div class="container">
 <h3><a href="../database.jsp">Voltar</a></h3>
-	<form action="cadcon.jsp"><style>ca{text-transform: uppercase !important;}</style>
-		<input type="text" id="ca" placeholder="AAAA1234567" name="conteinerId">
-		<select name="conteinerTp">
-			<option value="20">20</option>
-			<option value="40">40</option>
-		</select>
-		<select name="conteinerSt">
-			<option value="cheio">cheio</option>
-			<option value="vazio">vazio</option>
-		</select>
-		<select name="conteinerCate">
-			<option value="importacao">importação</option>
-			<option value="exportacao">exportação</option>
-		</select>
-		<input  type="number" name="num" hidden value="<%=request.getParameter("editar")%>">
-		<input type="submit" name="fazer" value="editar">
-	</form>	
+	<form form action="cadcon.jsp">
+            <label>Número do conteiner:</label>
+            <br>
+            <input type="text" id="numCon" name="conteinerId" maxlength="11" value="<%= request.getParameter("nume") %>" size="25" pattern="[A-Za-z]{4}-[0-9]{7}{11}" required>
+            <br>
+            <label>Tipo do conteiner:</label>
+            <br>
+            <select name="conteinerTp" required>
+                <option value="<%= request.getParameter("tipo") %>" selected><%= request.getParameter("tipo") %></option>
+                <option value="20">20</option>
+                <option value="40">40</option>
+            </select>
+            <br>
+            <label>Status do conteiner:</label>
+            <br>
+            <select name="conteinerSt" required>
+                <option value="<%= request.getParameter("status") %>" selected><%= request.getParameter("status") %></option>
+                <option value="Cheio">Cheio</option>
+                <option value="Vazio">Vazio</option>
+            </select>
+            <br>
+            <label>Categoria do conteiner:</label>
+            <br>
+            <select name="conteinerCate" required>
+                <option value="<%= request.getParameter("cate") %>" selected><%= request.getParameter("cate") %></option>
+                <option value="Exportação">Exportação</option>
+                <option value="Importação">Importação</option>
+            </select>
+            <br>
+            <input  type="number" name="num" hidden value="<%=request.getParameter("editar")%>">
+            <br>
+            <input type="submit" name="fazer" value="editar">
+        </form>
 
 </div>
 </body>

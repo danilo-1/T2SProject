@@ -5,14 +5,14 @@ var app = new Vue({
     el: '#app',
     data() {
        return {
-        v1: false
+        showEl: false
 
         }
     },
 methods: {
-  exibirForm: function(){
-   this.v1 = true;
-}
-}
+  exibirFormulario: function(){
+   this.showEl = true;
+		}
+	}
 
 })
