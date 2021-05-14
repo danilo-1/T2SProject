@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-
+<link rel="shortcut icon" href="validação/favicon.ico" />
 <title>Database-BDT2S</title>
 </head>
 <%if(session.getAttribute("usuario logado") != null){%>
@@ -18,20 +18,20 @@
 			<%@include file="WEB-INF/lib/header.jspf" %>
 			<h1>Contêineres <%= session.getAttribute("username") %></h1>
 			
-					<form action="login_cadastro/cadcon.jsp" id="app">
-						<input type="text" placeholder="AAAA1234567" name="conteinerId" maxlength="11" style="text-transform: uppercase !important;">
-						<select name="conteinerTp">
+					<form action="login_cadastro/cadcon.jsp" id="app" method="POST">
+						<div class="mb-3"><input type="text" placeholder="AAAA1234567" name="conteinerId" maxlength="11" style="text-transform: uppercase !important;"></div>
+						<div class="mb-3"><select name="conteinerTp">
 							<option value="20">20</option>
 							<option value="40">40</option>
-						</select>
-						<select name="conteinerSt">
+						</select></div>
+						<div class="mb-3"><select name="conteinerSt">
 							<option value="cheio">cheio</option>
 							<option value="vazio">vazio</option>
-						</select>
-						<select name="conteinerCate">
+						</select></div>
+						<div class="mb-3"><select name="conteinerCate">
 							<option value="importacao">importação</option>
 							<option value="exportacao">exportação</option>
-						</select>
+						</select></div>
 						
 						<input type="submit" name="criar" value="criar" class="btn btn-dark">
 					</form>
@@ -63,7 +63,14 @@
 						<%String tipo = rs.getString("tipo_conteiner"); %>
 						<%String status = rs.getString("status_conteiner"); %>
 						<%String cate = rs.getString("categoria"); %>
+						
 					<div class="btn-group" role="group" aria-label="Basic example">	
+						<%if(rs != null){
+							String ar = rs.getString(2);
+					%>
+					<td><form action="validação/loginV.jsp" method="POST">
+					<input type="text" name="nume" hidden value="<%= num %>">
+					<button type="submit" name="movi" class="btn btn-primary">acessar</button></form></td>				
 					<td>
 					<form action="login_cadastro/edita.jsp" method="POST">
 					<input type="text" name="nume" hidden value="<%= num %>">
@@ -75,7 +82,10 @@
 					
 					<button type="submit" name="remove" value="<%= idC2%>" class="btn btn-primary">remove</button></form></td>
 					</div>	
-					</tr><%} 
+					</tr><%
+			
+				}
+				} 
 				%></table>
 			</div><%
 			rs.close(); stmt.close(); con.close(); 
@@ -92,7 +102,10 @@
 	</html>
 <%}
 if(session.getAttribute("usuario logado") == null){
-	%> <div class="container"><%
+	%> <div class="container">
+	<h3><a href="index.jsp">Voltar</a></h3>
+	<%
+		
 		out.println("ACESSO NEGADO: por favor, entre com um login ou cadastre-se para ter acesso ao conteúdo da página");
 	
 	%></div><%

@@ -33,6 +33,7 @@ try{
 				
 				int rs = stmt.executeUpdate();
 			    if( rs > 0) {
+			    	
 			        response.sendRedirect("../database.jsp");
 			    }
 				 stmt.close(); con.close(); 

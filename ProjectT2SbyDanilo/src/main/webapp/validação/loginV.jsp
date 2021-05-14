@@ -34,6 +34,12 @@ stmt.setString(2, userpass);
 	    session.setAttribute("email", String.valueOf(b));
 	    response.sendRedirect("../database.jsp");
 	}}
+	
+	if(request.getParameter("movi") != null){
+		session.setAttribute("conteinere", String.valueOf(request.getParameter("nume")));
+		session.setAttribute("usuario movimentacao", "true");
+		response.sendRedirect("../movimentacao.jsp");
+	}
 rs.close(); stmt.close(); con.close(); 
  }
  catch(SQLException e){
