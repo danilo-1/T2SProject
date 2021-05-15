@@ -37,7 +37,7 @@ stmt.setString(2, userpass);
 	
 	if(request.getParameter("movi") != null){
 		session.setAttribute("conteinere", String.valueOf(request.getParameter("nume")));
-		session.setAttribute("usuario movimentacao", "true");
+		session.setAttribute("usunome", String.valueOf(request.getParameter("noconter")));
 		response.sendRedirect("../movimentacao.jsp");
 	}
 rs.close(); stmt.close(); con.close(); 

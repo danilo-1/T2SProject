@@ -2,7 +2,7 @@
 <%@page import="java.sql.*"%> 
 
 <%
-String a = (String)session.getAttribute("username");
+String a = request.getParameter("oco");
 String id = request.getParameter("conteinerId");
 String tp = request.getParameter("conteinerTp");
 String st = request.getParameter("conteinerSt");
@@ -40,12 +40,13 @@ try{
 			 }
 			if(request.getParameter("fazer") != null){
 				int num = Integer.parseInt(request.getParameter("num"));
-				PreparedStatement stmt = con.prepareStatement("UPDATE conteiner SET num_conteiner = ?, tipo_conteiner=?, status_conteiner=?, categoria=? WHERE id_conteiner=?;");
-				stmt.setString(1, id);
-				stmt.setString(2, tp);
-				stmt.setString(3, st);
-				stmt.setString(4, cate);
-				stmt.setInt(5, num);
+				PreparedStatement stmt = con.prepareStatement("UPDATE conteiner SET nm_cliente = ?, num_conteiner = ?, tipo_conteiner=?, status_conteiner=?, categoria=? WHERE id_conteiner=?;");
+				stmt.setString(1, a);
+				stmt.setString(2, id);
+				stmt.setString(3, tp);
+				stmt.setString(4, st);
+				stmt.setString(5, cate);
+				stmt.setInt(6, num);
 					
 			 
 				//String sql = "SELECT * FROM contato where email = " + user;

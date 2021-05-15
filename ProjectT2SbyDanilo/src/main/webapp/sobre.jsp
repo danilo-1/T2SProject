@@ -12,7 +12,7 @@
 <div class="container">
 <%@ include file="WEB-INF/lib/header.jspf" %>
 
-<h1>sobre nós</h1>
+<h1 id="titulo">sobre</h1>
 <br>
 <br>
 <div>
@@ -53,5 +53,6 @@
 	</div>
 </div>
 </div>
+<%@ include file="WEB-INF/lib/footer.jsp" %>
 </body>
 </html>
